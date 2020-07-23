@@ -11,8 +11,8 @@ sequelize.sync();
 app.use(require("./middleware/headers"));
 app.use(express.json());
 
-app.use("/user", user);
-app.use("/log", log);
+app.use("/api/user", user);
+app.use("/api/log", log);
 
 app.listen(3000, function () {
   console.log("app is listening on port 3000");
