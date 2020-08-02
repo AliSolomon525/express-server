@@ -8,7 +8,7 @@ router.get("/practice", validateSession, function (req, res) {
 });
 
 //* **CREATE LOG** *//
-router.post("/create", validateSession, (req, res) => {
+router.post("/", validateSession, (req, res) => {
   const logEntry = {
     description: req.body.log.description,
     definition: req.body.log.definition,
