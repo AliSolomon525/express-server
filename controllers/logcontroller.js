@@ -21,8 +21,11 @@ router.post("/", validateSession, (req, res) => {
 });
 
 //* **GET ALL ENTRIES** *//
-router.get("/", (req, res) => {
-  Log.findAll()
+router.get("/", validateSession, (req, res) => {
+  let userid = req.user.id;
+  Log.findAll({
+    where: { owner: userid },
+  })
     .then((logs) => res.status(200).json(logs))
     .catch((err) => res.status(500).json({ error: err }));
 });
